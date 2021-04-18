@@ -1,5 +1,5 @@
 const BASE_URL = "http://localhost:3000/";
-
+const dog_image_url = "https://curriculum-content.s3.amazonaws.com/js/woof-woof/";
 
 // OBJECTIVE 1
 // When the page loads, get all of the pups info/objects. 
@@ -10,14 +10,16 @@ const BASE_URL = "http://localhost:3000/";
 // 3. Append the component to the DOM
 
 
-function getpups() {
+function getPups() {
     const url = `${BASE_URL}pups`;
     return fetch(url)
     .then(resp => resp.json())
     // .then(data => console.log(data));
      
 }
-
+function getPupsPics() {
+    const url = `${dog_image_url}`
+}
 // const pups = getpups();
 // console.log(pups);
 
@@ -39,13 +41,27 @@ function getpups() {
   <button>Good Dog!</button>
 */
 function createPupDivBar(pupObj) {
-    const div = document.createElement('dog-bar');
+    const div1 = document.createElement('dog-bar');
     span = document.createElement('span');
 
     span.textContent = pupObj.name;
-    console.log(span);
-
+    div1.appendChild(span);
+    return div1;
 }
+   function createPupDiv(pupObj) {
+const div2 = document.createElement('dog-info');
+img = document.createElement('img'),
+h2 = document.createElement('h2'),
+button = document.createElement('butoon');
+
+img.src = pupObj.dog_image_url;
+h2.textContent = pupObj.name;
+return div2;
+}
+
+
+
+
 const testpups = {
     "id": 3,
 "name": "Skittles",
